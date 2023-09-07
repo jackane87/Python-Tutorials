@@ -1,0 +1,1 @@
+print('import3.py', __name__)
