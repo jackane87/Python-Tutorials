@@ -1,0 +1,13 @@
+{
+    "python.analysis.reportMissingImports": "warning",
+    "python.terminal.activateEnvironment": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./app",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
+}
