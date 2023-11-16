@@ -4,7 +4,7 @@ from tests.base_test import BaseTest
 import json
 
 
-class StorerTest(BaseTest):
+class StoreTest(BaseTest):
     """Class representing all tests for the Store resource"""
     def test_create_store(self):
         """method tests the successful creation of a store via the api"""
@@ -54,7 +54,6 @@ class StorerTest(BaseTest):
 
     def test_store_not_found(self):
            with self.app() as client:
-            #self.app_context is initialized because the methods tested all saving data to the database
             with self.app_context():
                 response = client.get('/store/teststore1')
                 #verifying that the status code is the expected 404 based on the store resource
