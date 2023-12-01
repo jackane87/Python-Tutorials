@@ -50,7 +50,7 @@ class StoreTest(BaseTest):
                 response = client.get('/store/teststore1')
                 self.assertEqual(response.status_code, 200)
                 #verifying that the correct response message was received when finding a store.
-                self.assertDictEqual({'name': 'teststore1', 'items': []}, json.loads(response.data))
+                self.assertDictEqual({'id': 1, 'name': 'teststore1', 'items': []}, json.loads(response.data))
 
     def test_store_not_found(self):
            with self.app() as client:
@@ -71,7 +71,7 @@ class StoreTest(BaseTest):
                 response = client.get('/store/teststore1')
                 self.assertEqual(response.status_code, 200)
                 #verifying that the correct response message was received when finding a store with items.
-                self.assertDictEqual({'name': 'teststore1', 'items': [{'name': 'test1','price': 19.99}, {'name': 'test2','price': 31.95}]}, json.loads(response.data))
+                self.assertDictEqual({'id': 1, 'name': 'teststore1', 'items': [{'name': 'test1','price': 19.99}, {'name': 'test2','price': 31.95}]}, json.loads(response.data))
 
     def test_store_list(self):
         with self.app() as client:
@@ -83,7 +83,7 @@ class StoreTest(BaseTest):
                 response = client.get('/stores')
                 self.assertEqual(response.status_code, 200)
                 #verifying that the correct response message was received when listing all stores.
-                self.assertDictEqual({'stores': [{'name': 'teststore1', 'items': []}, {'name': 'teststore2', 'items': []}, {'name': 'teststore3', 'items': []}]}, json.loads(response.data))
+                self.assertDictEqual({'stores': [{'id': 1, 'name': 'teststore1', 'items': []}, {'id': 2, 'name': 'teststore2', 'items': []}, {'id': 3, 'name': 'teststore3', 'items': []}]}, json.loads(response.data))
 
     def test_store_list_with_items(self):
         with self.app() as client:
@@ -98,4 +98,4 @@ class StoreTest(BaseTest):
                 response = client.get('/stores')
                 self.assertEqual(response.status_code, 200)
                 #verifying that the correct response message was received when listing all stores and their associated items.
-                self.assertDictEqual({'stores': [{'name': 'teststore1', 'items': [{'name': 'test1','price': 19.99}, {'name': 'test2','price': 31.95}]}, {'name': 'teststore2', 'items': []}, {'name': 'teststore3', 'items': [{'name': 'test3','price': 31.95}]}]}, json.loads(response.data))
+                self.assertDictEqual({'stores': [{'id': 1, 'name': 'teststore1', 'items': [{'name': 'test1','price': 19.99}, {'name': 'test2','price': 31.95}]}, {'id': 2, 'name': 'teststore2', 'items': []}, {'id': 3, 'name': 'teststore3', 'items': [{'name': 'test3','price': 31.95}]}]}, json.loads(response.data))

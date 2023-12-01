@@ -7,6 +7,8 @@ class StoreTest(BaseTest):
     def test_store_json(self):
         store = StoreModel('Test Store 1')
         expected = {
+            #ids will be set to none if they aren't saved to the database.
+            'id': None,
             'name': 'Test Store 1',
             'items': []
         }
@@ -22,6 +24,7 @@ class StoreTest(BaseTest):
             item1.save_to_db()
             item2.save_to_db()
             expected = {
+                'id': 1,
                 'name': 'Test Store 1',
                 'items': [{'name': 'test_item1', 'price': 19.99}, {'name': 'test_item2', 'price': 10.99}]
             }
