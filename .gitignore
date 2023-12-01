@@ -1,0 +1,6 @@
+__pycache__/
+.venv
+.mypy_cache
+instance/
+.DS_Store
+.vscode

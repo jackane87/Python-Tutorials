@@ -1,8 +1,0 @@
-language: python
-python: 
- - "3.9"
- - "nightly"
-install: 
- - "pip install pytest"
- - "pip install -r AutomatedTesting/'Course 1'/Postman/requirements.txt"
-script: python -m pytest AutomatedTesting/'Course 1'/Postman/tests/
