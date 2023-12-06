@@ -15,19 +15,16 @@ def step_impl(context):
     #by getting the homepage url, this will not need to be changed if the base url changes. Instead, the url in the base_page model would just need to be changed
     #and then everything else just works.
     context.driver.get(HomePage(context.driver).url)
-    time.sleep(5)
 
 @given('I am on the blog page')
 def step_impl(context):
     #context.driver = webdriver.Chrome()
     context.driver.get(BlogPage(context.driver).url)
-    time.sleep(5)
 
 @given('I am on the new post page')
 def step_impl(context):
     #context.driver = webdriver.Chrome()
     context.driver.get(NewPostPage(context.driver).url)
-    time.sleep(5)
 
 #the following two examples have had the url left hardcoded to show it may be more clear what is happening; however, if the base url changes, each hardcoded url would need to change.
 @then('I am on the blog page')

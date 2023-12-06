@@ -1,8 +1,6 @@
-#This creates screenshot step that can be reused across feature files instead of 
+#This creates screenshot step that can be reused across feature files instead of defining it across all steps.
 from behave import *
 from selenium import webdriver
-
-#This 
 
 @then('Take a screenshot and save it as "{filename}"')
 def step_impl(context, filename):
