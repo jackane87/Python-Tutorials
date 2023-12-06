@@ -3,6 +3,7 @@ from selenium import webdriver
 import time
 from features.page_model.home_page import HomePage
 from features.page_model.blog_page import BlogPage
+from features.page_model.new_post_page import NewPostPage
 
 #This allows our steps to receive arguments from the scenarios in the feature.
 use_step_matcher('re')
@@ -20,6 +21,14 @@ def step_impl(context):
     context.driver = webdriver.Chrome()
     context.driver.get(BlogPage(context.driver).url)
     time.sleep(5)
+
+@given('I am on the new post page')
+def step_impl(context):
+    context.driver = webdriver.Chrome()
+    context.driver.get(NewPostPage(context.driver).url)
+    time.sleep(5)
+
+    
 #the following two examples have had the url left hardcoded to show it may be more clear what is happening; however, if the base url changes, each hardcoded url would need to change.
 @then('I am on the blog page')
 def step_impl(context):
