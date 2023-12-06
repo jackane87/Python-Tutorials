@@ -22,4 +22,5 @@ Feature: Test that pages have correct content
         Then I am on the blog page
         Given I wait for the posts to load
         Then I can see there is a post with the title "Test Post" in the posts section
+        And Take a screenshot and save it as "Test_Post_Screenshot2.png"
 
